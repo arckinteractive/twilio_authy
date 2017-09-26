@@ -1,0 +1,31 @@
+{
+	"name": "arckinteractive/twilio_authy",
+	"type": "elgg-plugin",
+	"description": "Two-factor SMS authentication via Twilio Authy",
+	"homepage": "http://arckinteractive.com",
+	"keywords": [
+		"elgg",
+		"plugin",
+		"twilio",
+		"authy",
+		"two-factor authentication"
+	],
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "Ismayil Khayredinov",
+			"email": "ismayil@arckinteractive.com"
+		}
+	],
+	"require": {
+		"php": ">=5.6",
+		"composer/installers": "~1.0",
+		"authy/php": "~2.0"
+	},
+	"autoload": {
+		"psr-0": {
+			"": "classes/"
+		}
+	}
+}
+
