@@ -4,6 +4,9 @@ namespace ArckInteractive\TwilioAuthy;
 
 use ElggUser;
 
+/**
+ * @access private
+ */
 class Auth {
 
 	const TWILIO_VERIFICATION_VALIDITY = 86400;

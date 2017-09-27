@@ -32,3 +32,23 @@ elgg_register_event_handler('init', 'system', function () {
 
 	elgg_extend_view('forms/account/settings', 'core/settings/account/authy');
 });
+
+/**
+ * Validate that Twilio Authy verification was successful
+ * on the previous page and redirect user back if not
+ *
+ * @param bool $check_validity Check if previous verification has been performed within the last hour
+ *                             and let the user through if so
+ * @return void
+ */
+function twilio_authy_gatekeeper($check_validity = true) {
+
+	if (Auth::hasValidVerification()) {
+		return;
+	}
+
+	if (!Auth::gate()) {
+		register_error(elgg_echo('authy:error:action_gatekeeper'));
+		forward(REFERER);
+	}
+}

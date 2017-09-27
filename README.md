@@ -17,8 +17,5 @@ To add a captcha-like protection to your forms:
 echo elgg_view('input/authy');
 
 // in your action or page handler
-if (!\ArckInteractive\TwilioAuthy\Auth::gate()) {
-    register_error("Your verification code is invalid");
-    forward(REFERRER);
-}
+twilio_authy_gatekeeper();
 ```

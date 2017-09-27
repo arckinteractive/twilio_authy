@@ -2,6 +2,9 @@
 
 namespace ArckInteractive\TwilioAuthy;
 
+/**
+ * @access private
+ */
 class User {
 
 	const SETTING_PHONE_NUMBER = 'authy_phone_number';

@@ -2,6 +2,9 @@
 
 namespace ArckInteractive\TwilioAuthy;
 
+/**
+ * @access private
+ */
 class Router {
 
 	public static function route($segments) {
