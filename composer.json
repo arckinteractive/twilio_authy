@@ -1,5 +1,5 @@
 {
-	"name": "arckinteractive/twilio_authy",
+	"name": "arckinteractive/authy",
 	"type": "elgg-plugin",
 	"description": "Two-factor SMS authentication via Twilio Authy",
 	"homepage": "http://arckinteractive.com",

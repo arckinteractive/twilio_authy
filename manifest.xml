@@ -5,9 +5,7 @@
 	<id>twilio_authy</id>
 
 	<description>Two-factor SMS authentication via Twilio Authy</description>
-	<category>twilio</category>
-	<category>authy</category>
-	<category>two-factor authentication</category>
+	<category>authentication</category>
 	
 	<version type="dist">0.0.0</version>
 

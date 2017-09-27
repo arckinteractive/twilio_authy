@@ -1,12 +1,12 @@
 {
-	"name": "twilio_authy",
+	"name": "authy",
 	"version": "0.0.0",
 	"license": "GPL-2.0",
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:arckinteractive/twilio_authy.git",
+		"url": "git@github.com:arckinteractive/authy.git",
 		"owner": "arckinteractive",
-		"repo": "twilio_authy"
+		"repo": "authy"
 	},
 	"devDependencies": {
 		"curlrequest": "^0.3.10",
