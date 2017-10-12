@@ -10,11 +10,7 @@ echo elgg_view_field([
 	'required' => true,
 ]);
 
-$actions = [
-	'register',
-	'login',
-	'usersettings/save',
-];
+$actions = \ArckInteractive\TwilioAuthy\Auth::$actions;
 
 $fields = [];
 foreach ($actions as $action) {

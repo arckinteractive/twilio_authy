@@ -83,7 +83,11 @@ define(function (require) {
                 authy_username = $form.find('input[name="username"]').val();
                 authy_password = $form.find('input[name="password"]').val();
             } else if ($form.is('.elgg-form-register')) {
-                remail = $form.find('input[name="email"]').val();
+                if ($form.find('input[name="email_verified"]').length) {
+                    remail = $form.find('input[name="email_verified"]').val();
+                } else {
+                    remail = $form.find('input[name="email"]').val();
+                }
             }
 
             var $container = $('<div>').html($('<div>').addClass('elgg-ajax-loader'));

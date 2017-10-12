@@ -15,6 +15,8 @@ class Auth {
 		'register',
 		'login',
 		'usersettings/save',
+		'hybridauth/register',
+		'hybridauth/login',
 	];
 
 	/**
