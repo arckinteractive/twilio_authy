@@ -11,6 +11,7 @@ $fields = [
 	'authy_email',
 	'authy_signature',
 	'authy_ts',
+    'authy_token',
 ];
 
 foreach ($fields as $field) {

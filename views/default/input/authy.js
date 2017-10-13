@@ -60,6 +60,7 @@ define(function (require) {
 
                     }).done(function (output, statusText, jqXHR) {
                         $form.find('input[name="authy_ts"]').val(output.ts);
+                        $form.find('input[name="authy_token"]').val(output.token);
                         $form.find('input[name="authy_signature"]').val(output.signature);
 
                         lightbox.close();
