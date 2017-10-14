@@ -4,6 +4,8 @@ return [
 
 	'authy:settings:api_key' => 'Twilio Authy API Key',
 	'authy:settings:2fa:actions' => 'Select action you would like to protect with Two-Factor authentication',
+	'authy:settings:force_sms' => 'Force SMS',
+	'authy:settings:force_sms:help' => 'Always send out an SMS, even if the user has an Authy app installed on their phone',
 
 	'authy:email' => 'Email',
 	'authy:phone' => 'Phone Number',

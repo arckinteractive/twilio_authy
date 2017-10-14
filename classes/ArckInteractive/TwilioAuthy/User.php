@@ -164,7 +164,11 @@ class User {
 	public function requestToken() {
 		$api = $this->getApi();
 
-		$result = $api->requestSms($this->getId());
+		$force = elgg_get_plugin_setting('force_sms', 'twilio_authy');
+
+		$result = $api->requestSms($this->getId(), [
+			'force' => $force ? 'true' : 'false',
+		]);
 
 		if (!$result->ok()) {
 			throw new \RegistrationException(elgg_echo('authy:error:request_token', [

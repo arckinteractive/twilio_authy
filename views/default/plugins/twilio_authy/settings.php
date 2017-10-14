@@ -19,6 +19,18 @@ echo elgg_view_field([
 	'required' => true,
 ]);
 
+echo elgg_view_field([
+	'#type' => 'select',
+	'#label' => elgg_echo('authy:settings:force_sms'),
+	'#help' => elgg_echo('authy:settings:force_sms:help'),
+	'name' => 'params[force_sms]',
+	'value' => $entity->force_sms,
+	'options' => [
+		false => elgg_echo('option:no'),
+		true => elgg_echo('option:yes'),
+	]
+]);
+
 $actions = \ArckInteractive\TwilioAuthy\Auth::$actions;
 
 $fields = [];
