@@ -37,4 +37,7 @@ return [
 	'authy:error:update_failed' => 'Your phone number could not updated, please make sure it is in a correct format',
 	'authy:error:update_succeeded' => 'You phone number was updated',
 
+	'authy:admin:clear_storage' => 'Clear Storage',
+	'authy:admin:clear_storage:confirm' => 'This operation will clear Authy user records. You should only use this if you have registered a new Authy app',
+
 ];

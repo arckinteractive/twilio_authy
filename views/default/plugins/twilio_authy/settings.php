@@ -1,5 +1,14 @@
 <?php
 
+elgg_register_menu_item('title', [
+	'name' => 'clear_storage',
+	'href' => 'action/twilio_authy/clear_storage',
+	'text' => elgg_echo('authy:admin:clear_storage'),
+	'is_action' => true,
+	'confirm' => elgg_echo('authy:admin:clear_storage:confirm'),
+	'link_class' => 'elgg-button elgg-button-action',
+]);
+
 $entity = elgg_extract('entity', $vars);
 
 echo elgg_view_field([
