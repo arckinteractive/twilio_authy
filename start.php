@@ -21,6 +21,7 @@ elgg_register_event_handler('init', 'system', function () {
 
 	elgg_register_action('twilio_authy/request_token', __DIR__ . '/actions/twilio_authy/request_token.php', 'public');
 	elgg_register_action('twilio_authy/verify_token', __DIR__ . '/actions/twilio_authy/verify_token.php', 'public');
+	elgg_register_action('twilio_authy/request_call', __DIR__ . '/actions/twilio_authy/request_call.php', 'public');
 
 	elgg_register_action('twilio_authy/clear_storage', __DIR__ . '/actions/twilio_authy/clear_storage.php', 'admin');
 

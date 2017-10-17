@@ -155,4 +155,13 @@ define(function (require) {
 
         }
     });
+
+    $(document).on('click', '.authy-request-call', function (e) {
+        e.preventDefault();
+
+        var $elem = $(this);
+
+        var ajax = new Ajax();
+        ajax.action($elem.attr('href'));
+    });
 });

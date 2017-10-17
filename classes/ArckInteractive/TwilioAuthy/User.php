@@ -202,6 +202,32 @@ class User {
 	}
 
 	/**
+	 * Request a call
+	 *
+	 * @param string $authy_id ID
+	 * @return bool
+	 */
+	public function requestCall($authy_id) {
+		if (!$authy_id) {
+			throw new \RegistrationException(elgg_echo('authy:error:invalid'));
+		}
+
+		$api = $this->getApi();
+
+		$result = $api->phoneCall($authy_id, [
+			'force' => 'true'
+		]);
+
+		if (!$result->ok()) {
+			throw new \RegistrationException(elgg_echo('authy:error:phone_call', [
+				self::formatErrorMessage((array) $result->errors())
+			]));
+		}
+
+		return true;
+	}
+
+	/**
 	 * Format API errors
 	 *
 	 * @param array $errors API errors

@@ -8,10 +8,19 @@ echo elgg_view_field([
 	'value' => $authy_id,
 ]);
 
+$link = elgg_view('output/url', [
+	'text' => elgg_echo('authy:request_call'),
+	'href' => "action/twilio_authy/request_call?authy_id=$authy_id",
+	'is_action' => true,
+	'class' => 'authy-request-call',
+]);
+
+$link = elgg_format_element('strong', [], $link);
+
 echo elgg_view_field([
 	'#type' => 'text',
 	'#label' => elgg_echo('authy:token'),
-	'#help' => elgg_echo('authy:token:help'),
+	'#help' => elgg_echo('authy:token:help', [$link]),
 	'id' => 'authy-token',
 	'value' => '',
 	'required' => true,

@@ -12,7 +12,7 @@ return [
 	'authy:token' => 'Confirmation Code',
 	'authy:token:help' => '
 		Please enter the code you have received via SMS. 
-		Please allow some time for the message to arrive, and if it doesn\'t, close this dialog and resubmit the form
+		Please allow some time for the message to arrive, and if it doesn\'t, %s instead
 	',
 
 	'authy:request_token:help' => '
@@ -30,6 +30,7 @@ return [
 	'authy:error:invalid_token' => 'The code you have entered is invalid',
 	'authy:error:action_gatekeeper' => 'The action you are trying to perform requires two-factor authentication',
 	'authy:error:invalid' => 'User not found',
+	'authy:error:phone_call' => 'Unable to perform a voice call: %s',
 	'authy:token_verified' => 'Thank you! You have been authenticated.',
 
 	'authy:request_token' => 'Request Code',
@@ -42,4 +43,6 @@ return [
 	'authy:admin:clear_storage' => 'Clear Storage',
 	'authy:admin:clear_storage:confirm' => 'This operation will clear Authy user records. You should only use this if you have registered a new Authy app',
 
+	'authy:request_call' => 'request a voice call',
+	'authy:phone_call:pending' => 'You should be receiving a voice call with your confirmation code shortly',
 ];
