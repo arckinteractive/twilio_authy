@@ -33,6 +33,7 @@ class User {
 	private function getApi() {
 		$api_key = elgg_get_plugin_setting('api_key', 'twilio_authy');
 		$api = new \Authy\AuthyApi($api_key);
+
 		return $api;
 	}
 
@@ -40,6 +41,7 @@ class User {
 	 * Stores the ID of the user record recevied from Authy
 	 *
 	 * @param int $authy_id ID
+	 *
 	 * @return void
 	 */
 	public function setId($authy_id) {
@@ -75,7 +77,7 @@ class User {
 
 		if (!$api_user->ok()) {
 			throw new \RegistrationException(elgg_echo('authy:error:register', [
-				implode(PHP_EOL, (array) $api_user->errors())
+				self::formatErrorMessage((array) $api_user->errors())
 			]));
 		}
 
@@ -98,6 +100,7 @@ class User {
 	 * Returns phone country code
 	 *
 	 * @param bool $filter Normalize the output
+	 *
 	 * @return string|false
 	 */
 	public function getCountryCode($filter = false) {
@@ -108,6 +111,7 @@ class User {
 		if ($filter) {
 			return preg_replace('/\D/i', '', $country_code);
 		}
+
 		return $country_code;
 	}
 
@@ -115,6 +119,7 @@ class User {
 	 * Returns phone number
 	 *
 	 * @param bool $filter Normalize the output
+	 *
 	 * @return string|false
 	 */
 	public function getPhoneNumber($filter = false) {
@@ -125,6 +130,7 @@ class User {
 		if ($filter) {
 			return preg_replace('/\D/i', '', $phone_number);
 		}
+
 		return $phone_number;
 	}
 
@@ -149,12 +155,13 @@ class User {
 	 * @return string
 	 */
 	public function getMaskedNumber() {
-		$mask = function($number, $chart = 'x') {
+		$mask = function ($number, $chart = 'x') {
 			return substr($number, 0, 3) . str_repeat($chart, strlen($number) - 8) . substr($number, -2);
 		};
 
 		return $mask($this->getFormattedNumber());
 	}
+
 	/**
 	 * Request token via SMS
 	 *
@@ -172,7 +179,7 @@ class User {
 
 		if (!$result->ok()) {
 			throw new \RegistrationException(elgg_echo('authy:error:request_token', [
-				implode(PHP_EOL, (array) $result->errors())
+				self::formatErrorMessage((array) $result->errors())
 			]));
 		}
 
@@ -183,6 +190,7 @@ class User {
 	 * Validate token provided by the user
 	 *
 	 * @param string $token Token
+	 *
 	 * @return bool
 	 */
 	public function verifyToken($token) {
@@ -193,5 +201,27 @@ class User {
 		return $result->ok();
 	}
 
+	/**
+	 * Format API errors
+	 *
+	 * @param array $errors API errors
+	 *
+	 * @return string
+	 */
+	public static function formatErrorMessage(array $errors = []) {
+
+		$message = [];
+		if (!empty($errors['message'])) {
+			$message[] = $errors['message'];
+			unset($errors['message']);
+		}
+
+		foreach ($errors as $field => $error) {
+			$message[] = "$field $error";
+		}
+
+		return implode('; ', $message);
+
+	}
 
 }

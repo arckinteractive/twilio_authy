@@ -1,9 +1,11 @@
 <?php
 
+$registration_email = get_input('remail');
 $user = \ArckInteractive\TwilioAuthy\Auth::getUser();
+
 if (!$user) {
 	$user = new ElggUser();
-	$user->email = get_input('remail');
+	$user->email = $registration_email;
 }
 
 $phone = new \ArckInteractive\TwilioAuthy\User($user);
@@ -40,12 +42,13 @@ if ($authy_id) {
 		'class' => 'box elgg-status-success',
 	], elgg_format_element('p', [], elgg_echo('authy:request_token:help')));
 
-	if (!$user->email) {
+	if (!$user->guid) {
 		echo elgg_view_field([
 			'id' => 'authy-email',
 			'#type' => 'email',
 			'#label' => elgg_echo('authy:email'),
 			'required' => true,
+			'value' => $registration_email,
 		]);
 	}
 
