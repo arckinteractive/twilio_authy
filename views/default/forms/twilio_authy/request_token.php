@@ -57,10 +57,8 @@ if ($authy_id) {
 		'fields' => [
 			[
 				'id' => 'authy-country-code',
-				'#type' => 'text',
-				'placeholder' => '+1',
-				'size' => 4,
-				'pattern' => '^\+{0,1}\d{1,3}$',
+				'#type' => 'country_phone_code',
+				'value' => '1',
 				'required' => true,
 			],
 			[
