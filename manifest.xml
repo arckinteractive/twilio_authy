@@ -7,7 +7,7 @@
 	<description>Two-factor SMS authentication via Twilio Authy</description>
 	<category>authentication</category>
 	
-	<version type="dist">0.0.0</version>
+	<version type="dist">0.1.0</version>
 
 	<author>Ismayil Khayredinov (ismayil@arckinteractive.com)</author>
 	<website></website>
