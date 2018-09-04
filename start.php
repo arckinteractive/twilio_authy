@@ -34,6 +34,7 @@ elgg_register_event_handler('init', 'system', function () {
 	elgg_register_plugin_hook_handler('usersettings:save', 'user', [Auth::class, 'updateUserPhone']);
 
 	elgg_extend_view('forms/account/settings', 'core/settings/account/authy');
+	elgg_extend_view('elgg.css', 'twilio_authy/stylesheet.css');
 });
 
 /**

@@ -21,4 +21,7 @@ if (empty($options)) {
 $vars['value'] = $value;
 $vars['options_values'] = $options;
 
-echo elgg_view('input/select', $vars);
+$select = elgg_view('input/select', $vars);
+echo elgg_format_element('span', [
+	'class' => 'select',
+], $select);

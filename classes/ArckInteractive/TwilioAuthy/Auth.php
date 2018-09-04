@@ -80,20 +80,28 @@ class Auth {
 	public static function getUser() {
 
 		$get_user = function () {
-
 			$user = elgg_get_logged_in_user_entity();
 			if ($user) {
 				return $user;
+			}
+
+			if ($user_guid = elgg_get_session()->get('authy_user_guid')) {
+				$user = get_user($user_guid);
+				if ($user) {
+					return $user;
+				}
 			}
 
 			$username = get_input('authy_username', '');
 			if ($username && strpos($username, '@') !== false && ($users = get_user_by_email($username))) {
 				$username = $users[0]->username;
 			}
+
 			$password = get_input('authy_password', '');
 			if ($username && $password && elgg_authenticate($username, $password) === true) {
 				$user = get_user_by_username($username);
 				if ($user) {
+					elgg_get_session()->set('authy_user_guid', $user->guid);
 					return $user;
 				}
 			}
@@ -129,7 +137,6 @@ class Auth {
 		elgg_set_ignore_access($ia);
 
 		return $user;
-
 	}
 
 	public static function setUserPhone($hook, $type, $return, $params) {

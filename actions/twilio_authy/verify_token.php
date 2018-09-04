@@ -11,7 +11,6 @@ $phone->setId($id);
 $valid = $phone->verifyToken($token);
 
 if ($valid) {
-
 	elgg_get_session()->set('authy_verified', time());
 
 	$ts = time();
@@ -26,5 +25,5 @@ if ($valid) {
 		'signature' => $signature->getToken(),
 	], elgg_echo('authy:token_verified'));
 } else {
-	return elgg_error_response(elgg_echo('authy:invalid_token'));
+	return elgg_error_response(elgg_echo('authy:error:invalid_token'));
 }

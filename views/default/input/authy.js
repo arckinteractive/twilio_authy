@@ -31,7 +31,8 @@ define(function (require) {
             lightbox.open({
                 href: $container,
                 inline: true,
-                width: 300,
+                width: '600px',
+	            maxWidth: '100%',
             });
 
             var ajax = new Ajax(false);
@@ -80,6 +81,7 @@ define(function (require) {
             e.preventDefault();
 
             var authy_username, authy_password, remail;
+
             if ($form.is('.elgg-form-login')) {
                 authy_username = $form.find('input[name="username"]').val();
                 authy_password = $form.find('input[name="password"]').val();
@@ -96,7 +98,8 @@ define(function (require) {
             lightbox.open({
                 href: $container,
                 inline: true,
-                width: 300,
+	            width: '600px',
+	            maxWidth: '100%',
             });
 
             var ajax = new Ajax(false);

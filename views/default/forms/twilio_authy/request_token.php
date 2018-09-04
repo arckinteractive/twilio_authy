@@ -1,6 +1,7 @@
 <?php
 
 $registration_email = get_input('remail');
+
 $user = \ArckInteractive\TwilioAuthy\Auth::getUser();
 
 if (!$user) {
@@ -37,7 +38,6 @@ if ($authy_id) {
 		])->getToken(),
 	]);
 } else {
-
 	echo elgg_format_element('div', [
 		'class' => 'box elgg-status-success',
 	], elgg_format_element('p', [], elgg_echo('authy:request_token:help')));

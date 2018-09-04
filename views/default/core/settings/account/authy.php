@@ -15,10 +15,8 @@ $content = elgg_view_field([
 	'fields' => [
 		[
 			'name' => 'authy_country_code',
-			'#type' => 'text',
+			'#type' => 'country_phone_code',
 			'placeholder' => '+1',
-			'size' => 4,
-			'pattern' => '^\+{0,1}\d{1,3}$',
 			'required' => true,
 			'value' => $user->getPrivateSetting(\ArckInteractive\TwilioAuthy\User::SETTING_COUNTRY_CODE),
 		],

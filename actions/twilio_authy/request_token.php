@@ -1,7 +1,6 @@
 <?php
 
 try {
-
 	$user = \ArckInteractive\TwilioAuthy\Auth::getUser();
 
 	if (!$user) {
