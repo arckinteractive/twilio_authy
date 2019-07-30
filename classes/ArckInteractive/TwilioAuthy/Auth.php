@@ -102,6 +102,7 @@ class Auth {
 				$user = get_user_by_username($username);
 				if ($user) {
 					elgg_get_session()->set('authy_user_guid', $user->guid);
+
 					return $user;
 				}
 			}
@@ -174,14 +175,21 @@ class Auth {
 
 		try {
 			if ($country_code && $phone_number) {
+				$filtered_country_code = preg_replace('/\D/i', '', $country_code);
+				$filtered_phone_number = preg_replace('/\D/i', '', $phone_number);
+
 				$phone = new User($user);
-				$phone->setPhone($country_code, $phone_number);
+				if ($filtered_country_code !== $phone->getCountryCode(true) || $filtered_phone_number !== $phone->getPhoneNumber(true)) {
+					$phone->setPhone($country_code, $phone_number);
+					system_message(elgg_echo('authy:error:update_succeeded'));
+				}
 			}
-			//system_message(elgg_echo('authy:error:update_succeeded'));
-			return true;
 		} catch (\RegistrationException $e) {
 			register_error(elgg_echo('authy:error:update_failed'));
+
 			return false;
 		}
+
+		return true;
 	}
 }
