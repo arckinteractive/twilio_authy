@@ -1,3 +1,13 @@
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/arckinteractive/authy/compare/0.1.1...v0.1.1) (2019-07-30)
+
+
+### Bug Fixes
+
+* **auth:** do not exempt admins from 2fa on settings save ([a9d4580](https://github.com/arckinteractive/authy/commit/a9d4580))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2018-09-04)
 
