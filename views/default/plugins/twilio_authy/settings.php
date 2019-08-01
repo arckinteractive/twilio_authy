@@ -11,6 +11,10 @@ elgg_register_menu_item('title', [
 
 $entity = elgg_extract('entity', $vars);
 
+echo elgg_format_element('div', [
+	'class' => 'elgg-message elgg-state-notice',
+], elgg_echo('authy:api_key:instructions'));
+
 echo elgg_view_field([
 	'#type' => 'text',
 	'#label' => elgg_echo('authy:settings:api_key'),

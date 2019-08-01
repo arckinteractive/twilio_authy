@@ -45,4 +45,6 @@ return [
 
 	'authy:request_call' => 'request a voice call',
 	'authy:phone_call:pending' => 'You should be receiving a voice call with your confirmation code shortly',
+
+	'authy:api_key:instructions' => 'Please note that Authy API key is not your Twilio API Key. In order to generate an Authy API key, go to All Products & Services in your Twilio console. Select Authy, create a new app or select an existing one. The key will be under the Settings of your application.',
 ];
