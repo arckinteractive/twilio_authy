@@ -1,3 +1,13 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/arckinteractive/authy/compare/0.1.3...0.2.0) (2019-08-01)
+
+
+### Features
+
+* **ux:** tighter integration with twilio_sms ([11be958](https://github.com/arckinteractive/authy/commit/11be958))
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/arckinteractive/authy/compare/0.1.2...0.1.3) (2019-08-01)
 
