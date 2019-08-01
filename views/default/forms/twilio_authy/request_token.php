@@ -72,6 +72,18 @@ if ($authy_id) {
 			],
 		],
 	]);
+
+	echo elgg_view_field([
+		'id' => 'authy-allow-sms',
+		'#type' => 'checkbox',
+		'#label' => elgg_echo('authy:allow_sms'),
+	]);
+
+	echo elgg_view_field([
+		'id' => 'authy-allow-profile',
+		'#type' => 'checkbox',
+		'#label' => elgg_echo('authy:allow_profile'),
+	]);
 }
 
 $footer = elgg_view_field([

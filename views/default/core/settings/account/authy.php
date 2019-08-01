@@ -30,4 +30,18 @@ $content = elgg_view_field([
 	],
 ]);
 
+$content .= elgg_view_field([
+	'name' => 'authy_allow_sms',
+	'#type' => 'checkbox',
+	'#label' => elgg_echo('authy:allow_sms'),
+	'checked' => (bool) $user->getPrivateSetting('sms_number'),
+]);
+
+$content .= elgg_view_field([
+	'name' => 'authy_allow_profile',
+	'#type' => 'checkbox',
+	'#label' => elgg_echo('authy:allow_profile'),
+	'checked' => false,
+]);
+
 echo elgg_view_module('info', $title, $content);

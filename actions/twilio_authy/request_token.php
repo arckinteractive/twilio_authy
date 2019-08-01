@@ -36,6 +36,8 @@ try {
 		'authy_id' => $authy_id,
 		'country_code' => $country_code,
 		'phone_number' => $phone_number,
+		'allow_sms' => get_input('allow_sms'),
+		'allow_profile' => get_input('allow_profile'),
 	]);
 } catch (RegistrationException $ex) {
 	return elgg_error_response($ex->getMessage());

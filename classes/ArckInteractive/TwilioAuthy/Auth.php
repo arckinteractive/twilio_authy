@@ -151,6 +151,22 @@ class Auth {
 				$phone = new User($user);
 				$phone->setPhone($country_code, $phone_number);
 				elgg_set_user_validation_status($user->guid, true, 'twilio_authy');
+
+				$allow_sms = get_input('authy_allow_sms');
+				if (isset($allow_sms)) {
+					if ((bool) $allow_sms) {
+						$user->setPrivateSetting('sms_number', $phone->getFormattedNumber());
+					} else {
+						$user->removePrivateSetting('sms_number');
+					}
+				}
+
+				$allow_profile = get_input('authy_allow_profile');
+				if (isset($allow_profile)) {
+					if ((bool) $allow_profile) {
+						$user->mobile = $phone->getFormattedNumber();
+					}
+				}
 			}
 		} catch (\RegistrationException $e) {
 
@@ -182,6 +198,22 @@ class Auth {
 				if ($filtered_country_code !== $phone->getCountryCode(true) || $filtered_phone_number !== $phone->getPhoneNumber(true)) {
 					$phone->setPhone($country_code, $phone_number);
 					system_message(elgg_echo('authy:error:update_succeeded'));
+				}
+
+				$allow_sms = get_input('authy_allow_sms');
+				if (isset($allow_sms)) {
+					if ((bool) $allow_sms) {
+						$user->setPrivateSetting('sms_number', $phone->getFormattedNumber());
+					} else {
+						$user->removePrivateSetting('sms_number');
+					}
+				}
+
+				$allow_profile = get_input('authy_allow_profile');
+				if (isset($allow_profile)) {
+					if ((bool) $allow_profile) {
+						$user->mobile = $phone->getFormattedNumber();
+					}
 				}
 			}
 		} catch (\RegistrationException $e) {

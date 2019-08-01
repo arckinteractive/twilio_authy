@@ -37,6 +37,11 @@ elgg_register_event_handler('init', 'system', function () {
 	elgg_extend_view('elgg.css', 'twilio_authy/stylesheet.css');
 });
 
+elgg_register_event_handler('ready', 'system', function() {
+	// Replace notifications_sms
+	elgg_unextend_view('forms/account/settings', 'core/settings/account/sms_number');
+});
+
 /**
  * Validate that Twilio Authy verification was successful
  * on the previous page and redirect user back if not
