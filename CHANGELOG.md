@@ -1,3 +1,13 @@
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/arckinteractive/authy/compare/0.1.2...0.1.3) (2019-08-01)
+
+
+### Bug Fixes
+
+* **docs:** add instructions on how to obtain a key ([d1d95c8](https://github.com/arckinteractive/authy/commit/d1d95c8))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/arckinteractive/authy/compare/0.1.1...v0.1.2) (2019-07-30)
 
