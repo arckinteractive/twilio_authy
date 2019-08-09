@@ -1,3 +1,13 @@
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/arckinteractive/authy/compare/0.2.0...0.2.1) (2019-08-09)
+
+
+### Bug Fixes
+
+* **ux:** drop sync of sms number with profile mobile ([b85419d](https://github.com/arckinteractive/authy/commit/b85419d))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/arckinteractive/authy/compare/0.1.3...0.2.0) (2019-08-01)
 
