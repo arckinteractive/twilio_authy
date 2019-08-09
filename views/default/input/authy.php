@@ -13,7 +13,6 @@ $fields = [
 	'authy_ts',
     'authy_token',
     'authy_allow_sms',
-    'authy_allow_profile',
 ];
 
 foreach ($fields as $field) {

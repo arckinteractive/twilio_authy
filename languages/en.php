@@ -49,5 +49,4 @@ return [
 	'authy:api_key:instructions' => 'Please note that Authy API key is not your Twilio API Key. In order to generate an Authy API key, go to All Products & Services in your Twilio console. Select Authy, create a new app or select an existing one. The key will be under the Settings of your application.',
 
 	'authy:allow_sms' => 'Allow this phone number to be used for account and activity notifications from the site',
-	'authy:allow_profile' => 'List this number as a contact phone on my profile',
 ];

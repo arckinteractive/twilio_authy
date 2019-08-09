@@ -154,7 +154,6 @@ define(function (require) {
 						var countryCode = $authform.find('#authy-country-code').val();
 						var phoneNumber = $authform.find('#authy-phone-number').val();
 						var allowSms = $authform.find('#authy-allow-sms').val();
-						var allowProfile = $authform.find('#authy-allow-profile').val();
 
 						var ajax = new Ajax(true);
 
@@ -167,7 +166,6 @@ define(function (require) {
 								country_code: countryCode,
 								phone_number: phoneNumber,
 								allow_sms: allowSms === 'on',
-								allow_profile: allowProfile === 'on',
 							},
 							beforeSend: function () {
 								$authform.find('[type="submit"]')
@@ -188,7 +186,6 @@ define(function (require) {
 							$form.find('input[name="authy_country_code"]').val(output.country_code);
 							$form.find('input[name="authy_phone_number"]').val(output.phone_number);
 							$form.find('input[name="authy_allow_sms"]').val(output.allow_sms ? 1 : 0);
-							$form.find('input[name="authy_allow_profile"]').val(output.allow_profile ? 1 : 0);
 
 							initConfirm();
 						}).fail(function () {

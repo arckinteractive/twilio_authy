@@ -160,13 +160,6 @@ class Auth {
 						$user->removePrivateSetting('sms_number');
 					}
 				}
-
-				$allow_profile = get_input('authy_allow_profile');
-				if (isset($allow_profile)) {
-					if ((bool) $allow_profile) {
-						$user->mobile = $phone->getFormattedNumber();
-					}
-				}
 			}
 		} catch (\RegistrationException $e) {
 
@@ -208,13 +201,6 @@ class Auth {
 						$user->removePrivateSetting('sms_number');
 					}
 				}
-
-				$allow_profile = get_input('authy_allow_profile');
-				if (isset($allow_profile)) {
-					if ((bool) $allow_profile) {
-						$user->mobile = $phone->getFormattedNumber();
-					}
-				}
 			}
 		} catch (\RegistrationException $e) {
 			register_error(elgg_echo('authy:error:update_failed'));
@@ -223,5 +209,24 @@ class Auth {
 		}
 
 		return true;
+	}
+
+	public static function syncUserPhone($event, $type, $user) {
+		if (!$user instanceof ElggUser) {
+			return;
+		}
+
+		$sync = $user->getPrivateSetting('authy_sync_mobile');
+
+		if (!$sync) {
+			return;
+		}
+
+		$mobile = $user->mobile;
+		if (!$mobile) {
+			return;
+		}
+
+
 	}
 }
